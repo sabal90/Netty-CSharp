@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EED167F5-34A4-42A8-B55C-8255B6B95EB0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>io</RootNamespace>
+    <AssemblyName>Netty</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <CodeContractsAssemblyMode>1</CodeContractsAssemblyMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeContractsEnableRuntimeChecking>True</CodeContractsEnableRuntimeChecking>
+    <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
+    <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
+    <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
+    <CodeContractsRuntimeSkipQuantifiers>False</CodeContractsRuntimeSkipQuantifiers>
+    <CodeContractsRunCodeAnalysis>False</CodeContractsRunCodeAnalysis>
+    <CodeContractsNonNullObligations>True</CodeContractsNonNullObligations>
+    <CodeContractsBoundsObligations>True</CodeContractsBoundsObligations>
+    <CodeContractsArithmeticObligations>True</CodeContractsArithmeticObligations>
+    <CodeContractsEnumObligations>True</CodeContractsEnumObligations>
+    <CodeContractsRedundantAssumptions>True</CodeContractsRedundantAssumptions>
+    <CodeContractsAssertsToContractsCheckBox>True</CodeContractsAssertsToContractsCheckBox>
+    <CodeContractsRedundantTests>True</CodeContractsRedundantTests>
+    <CodeContractsMissingPublicRequiresAsWarnings>True</CodeContractsMissingPublicRequiresAsWarnings>
+    <CodeContractsMissingPublicEnsuresAsWarnings>False</CodeContractsMissingPublicEnsuresAsWarnings>
+    <CodeContractsInferRequires>True</CodeContractsInferRequires>
+    <CodeContractsInferEnsures>False</CodeContractsInferEnsures>
+    <CodeContractsInferEnsuresAutoProperties>True</CodeContractsInferEnsuresAutoProperties>
+    <CodeContractsInferObjectInvariants>False</CodeContractsInferObjectInvariants>
+    <CodeContractsSuggestAssumptions>False</CodeContractsSuggestAssumptions>
+    <CodeContractsSuggestAssumptionsForCallees>False</CodeContractsSuggestAssumptionsForCallees>
+    <CodeContractsSuggestRequires>False</CodeContractsSuggestRequires>
+    <CodeContractsNecessaryEnsures>True</CodeContractsNecessaryEnsures>
+    <CodeContractsSuggestObjectInvariants>False</CodeContractsSuggestObjectInvariants>
+    <CodeContractsSuggestReadonly>True</CodeContractsSuggestReadonly>
+    <CodeContractsRunInBackground>True</CodeContractsRunInBackground>
+    <CodeContractsShowSquigglies>True</CodeContractsShowSquigglies>
+    <CodeContractsUseBaseLine>False</CodeContractsUseBaseLine>
+    <CodeContractsEmitXMLDocs>False</CodeContractsEmitXMLDocs>
+    <CodeContractsCustomRewriterAssembly />
+    <CodeContractsCustomRewriterClass />
+    <CodeContractsLibPaths />
+    <CodeContractsExtraRewriteOptions />
+    <CodeContractsExtraAnalysisOptions />
+    <CodeContractsSQLServerOption />
+    <CodeContractsBaseLineFile />
+    <CodeContractsCacheAnalysisResults>True</CodeContractsCacheAnalysisResults>
+    <CodeContractsSkipAnalysisIfCannotConnectToCache>False</CodeContractsSkipAnalysisIfCannotConnectToCache>
+    <CodeContractsFailBuildOnWarnings>False</CodeContractsFailBuildOnWarnings>
+    <CodeContractsBeingOptimisticOnExternal>True</CodeContractsBeingOptimisticOnExternal>
+    <CodeContractsRuntimeCheckingLevel>Full</CodeContractsRuntimeCheckingLevel>
+    <CodeContractsReferenceAssembly>Build</CodeContractsReferenceAssembly>
+    <CodeContractsAnalysisWarningLevel>0</CodeContractsAnalysisWarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>packages\NLog.4.5.7\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="netty\bootstrap\AbstractBootstrap.cs" />
+    <Compile Include="netty\bootstrap\AbstractBootstrapConfig.cs" />
+    <Compile Include="netty\bootstrap\BootstrapConfig.cs" />
+    <Compile Include="netty\bootstrap\ServerBootstrap.cs" />
+    <Compile Include="netty\buffer\ByteBuf.cs" />
+    <Compile Include="netty\buffer\ByteBufHolder.cs" />
+    <Compile Include="netty\buffer\ByteOrder.cs" />
+    <Compile Include="netty\channel\AddressedEnvelope.cs" />
+    <Compile Include="netty\channel\ChannelException.cs" />
+    <Compile Include="netty\channel\DefaultAddressedEnvelope.cs" />
+    <Compile Include="netty\channel\nio\AbstractNioChannel.cs" />
+    <Compile Include="netty\channel\AbstractChannel.cs" />
+    <Compile Include="netty\channel\AbstractChannelHandlerContext.cs" />
+    <Compile Include="netty\channel\ChannelInitializer.cs" />
+    <Compile Include="netty\bootstrap\Bootstrap.cs" />
+    <Compile Include="netty\channel\ChannelMetadata.cs" />
+    <Compile Include="netty\channel\ClosedChannelException.cs" />
+    <Compile Include="netty\channel\EventLoop.cs" />
+    <Compile Include="netty\channel\EventLoopGroup.cs" />
+    <Compile Include="netty\channel\rxtx\SerialPortFixer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="netty\channel\usb\UsbChannel.cs" />
+    <Compile Include="netty\nio\AbstractSelectableChannel.cs" />
+    <Compile Include="netty\nio\AbstractSelectionKey.cs" />
+    <Compile Include="netty\nio\AbstractSelector.cs" />
+    <Compile Include="netty\nio\IllegalSelectorException.cs" />
+    <Compile Include="netty\nio\SelChImpl.cs" />
+    <Compile Include="netty\nio\SelectableChannel.cs" />
+    <Compile Include="netty\nio\SelectedSelectionKeySet.cs" />
+    <Compile Include="netty\nio\SelectedSelectionKeySetSelector.cs" />
+    <Compile Include="netty\nio\SelectionKey.cs" />
+    <Compile Include="netty\nio\SelectionKeyImpl.cs" />
+    <Compile Include="netty\nio\Selector.cs" />
+    <Compile Include="netty\nio\SelectorProvider.cs" />
+    <Compile Include="netty\nio\SelectorImpl.cs" />
+    <Compile Include="netty\nio\SocketChannel.cs" />
+    <Compile Include="netty\nio\SocketChannelImpl.cs" />
+    <Compile Include="netty\nio\WindowsSelectorImpl.cs" />
+    <Compile Include="netty\channel\ServerChannel.cs" />
+    <Compile Include="netty\channel\SingleThreadEventLoop.cs" />
+    <Compile Include="netty\channel\nio\NioEventLoop.cs" />
+    <Compile Include="netty\channel\nio\NioEventLoopGroup.cs" />
+    <Compile Include="netty\channel\socket\DatagramChannel.cs" />
+    <Compile Include="netty\channel\socket\DatagramPacket.cs" />
+    <Compile Include="netty\channel\socket\nio\NioServerSocketChannel.cs" />
+    <Compile Include="netty\channel\socket\ServerSocketChannel.cs" />
+    <Compile Include="netty\handler\codec\bytes\ByteArrayDecoder.cs" />
+    <Compile Include="netty\handler\codec\ByteToMessageDecoder.cs" />
+    <Compile Include="netty\channel\Channel.cs" />
+    <Compile Include="netty\channel\ChannelDuplexHandler.cs" />
+    <Compile Include="netty\channel\ChannelFactory.cs" />
+    <Compile Include="netty\channel\ChannelHandler.cs" />
+    <Compile Include="netty\channel\ChannelHandlerAdapter.cs" />
+    <Compile Include="netty\channel\ChannelHandlerContext.cs" />
+    <Compile Include="netty\channel\ChannelId.cs" />
+    <Compile Include="netty\channel\ChannelInboundHandler.cs" />
+    <Compile Include="netty\channel\ChannelInboundHandlerAdapter.cs" />
+    <Compile Include="netty\channel\ChannelInboundInvoker.cs" />
+    <Compile Include="netty\channel\AbstractChannelInitializer.cs" />
+    <Compile Include="netty\channel\ChannelOutboundHandler.cs" />
+    <Compile Include="netty\channel\ChannelOutboundHandlerAdapter.cs" />
+    <Compile Include="netty\channel\ChannelOutboundInvoker.cs" />
+    <Compile Include="netty\channel\ChannelPipeline.cs" />
+    <Compile Include="netty\channel\ChannelPipelineException.cs" />
+    <Compile Include="netty\channel\DefaultChannelHandlerContext.cs" />
+    <Compile Include="netty\channel\DefaultChannelId.cs" />
+    <Compile Include="netty\channel\DefaultChannelPipeline.cs" />
+    <Compile Include="netty\handler\codec\CodecException.cs" />
+    <Compile Include="netty\handler\codec\CodecOutputList.cs" />
+    <Compile Include="netty\handler\codec\DatagramPacketDecoder.cs" />
+    <Compile Include="netty\handler\codec\DecoderException.cs" />
+    <Compile Include="netty\handler\codec\MessageToMessageDecoder.cs" />
+    <Compile Include="netty\handler\timeout\IdleState.cs" />
+    <Compile Include="netty\handler\timeout\IdleStateEvent.cs" />
+    <Compile Include="netty\handler\timeout\IdleStateHandler.cs" />
+    <Compile Include="netty\channel\ReflectiveChannelFactory.cs" />
+    <Compile Include="netty\channel\rxtx\RxtxChannel.cs" />
+    <Compile Include="netty\channel\socket\SocketChannel.cs" />
+    <Compile Include="netty\resolver\AddressResolver.cs" />
+    <Compile Include="netty\resolver\AddressResolverGroup.cs" />
+    <Compile Include="netty\resolver\DefaultAddressResolverGroup.cs" />
+    <Compile Include="netty\resolver\InetAddress.cs" />
+    <Compile Include="netty\resolver\InetSocketAddress.cs" />
+    <Compile Include="netty\util\AbstractRecycler.cs" />
+    <Compile Include="netty\util\concurrent\AbstractEventExecutor.cs" />
+    <Compile Include="netty\util\concurrent\AbstractEventExecutorGroup.cs" />
+    <Compile Include="netty\util\concurrent\AbstractScheduledEventExecutor.cs" />
+    <Compile Include="netty\util\concurrent\DefaultEventExecutorChooserFactory.cs" />
+    <Compile Include="netty\util\concurrent\DefaultThreadFactory.cs" />
+    <Compile Include="netty\util\concurrent\EventExecutor.cs" />
+    <Compile Include="netty\util\concurrent\EventExecutorChooserFactory.cs" />
+    <Compile Include="netty\util\concurrent\EventExecutorGroup.cs" />
+    <Compile Include="netty\util\concurrent\Executor.cs" />
+    <Compile Include="netty\util\concurrent\MultithreadEventExecutorGroup.cs" />
+    <Compile Include="netty\channel\MultithreadEventLoopGroup.cs" />
+    <Compile Include="netty\util\concurrent\OrderedEventExecutor.cs" />
+    <Compile Include="netty\util\concurrent\SingleThreadEventExecutor.cs" />
+    <Compile Include="netty\util\concurrent\ThreadFactory.cs" />
+    <Compile Include="netty\util\concurrent\ThreadPerTaskExecutor.cs" />
+    <Compile Include="netty\util\concurrent\TimeUnit.cs" />
+    <Compile Include="netty\channel\socket\nio\NioDatagramChannel.cs" />
+    <Compile Include="netty\util\inner\InternalThreadLocalMap.cs" />
+    <Compile Include="netty\util\inner\MathUtil.cs" />
+    <Compile Include="netty\util\inner\StringUtil.cs" />
+    <Compile Include="netty\util\inner\AbstractTypeParameterMatcher.cs" />
+    <Compile Include="netty\util\inner\TypeParameterMatcher.cs" />
+    <Compile Include="netty\util\inner\UnpaddedInternalThreadLocalMap.cs" />
+    <Compile Include="netty\util\Recycler.cs" />
+    <Compile Include="netty\util\ReferenceCounted.cs" />
+    <Compile Include="netty\util\ReferenceCountUtil.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="netty\channel\socket\nio\NioSocketChannel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
