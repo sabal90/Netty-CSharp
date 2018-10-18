@@ -60,26 +60,35 @@ namespace io.netty.channel.nio
 
 		protected override void run()
 		{
-			while (isTask)
+			while (true)
 			{
-				runAllTasks();
-				Thread.Sleep(1);
-			}
+				if (isTask == true)
+				{
+					runAllTasks();
+					Thread.Sleep(1);
+				}
+				else
+				{
+					WindowsSelectorImpl windowsSelector = (WindowsSelectorImpl)_unwrappedSelector;
+					SelectionKeyImpl[] selectionKeys = windowsSelector.getChannels();
 
-			WindowsSelectorImpl windowsSelector = (WindowsSelectorImpl)_unwrappedSelector;
-			SelectionKeyImpl[] selectionKeys = windowsSelector.getChannels();
-			foreach (SelectionKeyImpl selectionKey in selectionKeys)
-			{
-				if (selectionKey == null)
-					continue;
+					foreach (SelectionKeyImpl selectionKey in selectionKeys)
+					{
+						if (selectionKey == null)
+							continue;
 
-				Object a = selectionKey.attachment();
+						Object a = selectionKey.attachment();
 
-				if (!(a is AbstractChannel))
-					continue;
+						if (!(a is AbstractChannel))
+							continue;
 
-				AbstractChannel ch = (AbstractChannel)a;
-				ch.getUnsafe().close();
+						AbstractChannel ch = (AbstractChannel)a;
+						ch.getUnsafe().close();
+						runAllTasks();
+					}
+
+					break;
+				}
 			}
 		}
 	}

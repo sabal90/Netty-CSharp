@@ -1,6 +1,7 @@
-﻿using NLog;
+﻿using com.clt.util;
+using NLog;
 using System;
-using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
 
@@ -8,11 +9,11 @@ namespace io.netty.util.concurrent
 {
 	public abstract class SingleThreadEventExecutor : AbstractScheduledEventExecutor, OrderedEventExecutor
 	{
-		private static int ST_NOT_STARTED = 1;
-		private static int ST_STARTED = 2;
-		private static int ST_SHUTTING_DOWN = 3;
-//		private static int ST_SHUTDOWN = 4;
-		private static int ST_TERMINATED = 5;
+		protected static int ST_NOT_STARTED = 1;
+		protected static int ST_STARTED = 2;
+		protected static int ST_SHUTTING_DOWN = 3;
+//		protected static int ST_SHUTDOWN = 4;
+		protected static int ST_TERMINATED = 5;
 
 		private bool addTaskWakesUp;
 		private int maxPendingTasks;
@@ -20,7 +21,7 @@ namespace io.netty.util.concurrent
 		private BlockingCollection<Action> taskQueue;
 
 		private long lastExecutionTime;
-		private int state = ST_NOT_STARTED;
+		protected int state = ST_NOT_STARTED;
 		private long gracefulShutdownStartTime = 0;
 		protected bool isTask = false;
 		private static Logger logger = LogManager.GetCurrentClassLogger();
@@ -51,7 +52,8 @@ namespace io.netty.util.concurrent
 
 		public override bool inEventLoop(Thread thread)
 		{
-			return isTask;
+			return state == ST_STARTED;
+//			return isTask;
 //			return thread == this.thread;
 		}
 
@@ -173,7 +175,7 @@ namespace io.netty.util.concurrent
 				return false;
 			}
 
-			while (isTask)
+			while (true)
 			{
 				safeExecute(task);
 				task = pollTaskFrom(taskQueue);
@@ -184,7 +186,7 @@ namespace io.netty.util.concurrent
 				}
 			}
 
-			return false;
+//			return false;
 		}
 
 		protected static Action pollTaskFrom(BlockingCollection<Action> taskQueue)
@@ -343,7 +345,7 @@ namespace io.netty.util.concurrent
 					// Check if confirmShutdown() was called at the end of the loop.
 					if (success && gracefulShutdownStartTime == 0)
 					{
-						logger.Warn("Buggy " + typeof(EventExecutor).Name + " implementation; " + typeof(SingleThreadEventExecutor).Name + ".confirmShutdown() must be called " + "before run() implementation terminates.");
+//						logger.Warn("Buggy " + typeof(EventExecutor).Name + " implementation; " + typeof(SingleThreadEventExecutor).Name + ".confirmShutdown() must be called " + "before run() implementation terminates.");
 					}
 
 					try

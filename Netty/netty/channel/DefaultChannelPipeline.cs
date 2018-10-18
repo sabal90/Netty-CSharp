@@ -19,7 +19,7 @@ namespace io.netty.channel
 		private PendingHandlerCallback pendingHandlerCallbackHead;
 		private bool firstRegistration = true;
 		private Channel _channel;
-		private static Dictionary<Type, String> nameCaches = new Dictionary<Type, String>();
+		private Dictionary<Type, String> nameCaches = new Dictionary<Type, String>();
 		Dictionary<EventExecutorGroup, EventExecutor> childExecutors;
 
 		private abstract class PendingHandlerCallback

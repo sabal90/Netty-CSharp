@@ -18,8 +18,8 @@ namespace io.netty.channel
 		private Unsafe _unsafe;
 		private Object receiveMsg;
 		private volatile EventLoop _eventLoop;
-		private volatile SocketAddress _localAddress;
-		private volatile SocketAddress _remoteAddress;
+		protected volatile SocketAddress _localAddress;
+		protected volatile SocketAddress _remoteAddress;
 		private static ClosedChannelException CLOSE_CLOSED_CHANNEL_EXCEPTION = new ClosedChannelException("close(...)");
 		private SelectableChannel ch;
 		private volatile SelectionKey _selectionKey;
@@ -389,6 +389,7 @@ namespace io.netty.channel
 				//
 				// See:
 				// https://github.com/netty/netty/issues/4435
+
 				invokeLater(() =>
 				{
 					try

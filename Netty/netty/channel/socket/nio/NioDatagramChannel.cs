@@ -22,8 +22,6 @@ namespace io.netty.channel.socket.nio
 		private NetworkType networkType;
 		private static ChannelMetadata METADATA = new ChannelMetadata(false, 16);
 		private bool _isActive;
-		private SocketAddress _localAddress;
-		private SocketAddress _remoteAddress;
 		private static Logger logger = LogManager.GetCurrentClassLogger();
 
 		public NioDatagramChannel() : base(null) { }

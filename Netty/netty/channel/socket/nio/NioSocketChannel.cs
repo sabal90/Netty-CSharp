@@ -20,8 +20,6 @@ namespace io.netty.channel.socket.nio
 		private byte[] buffer;
 		private static ChannelMetadata METADATA = new ChannelMetadata(true, 16);
 		private bool _isActive;
-		private SocketAddress _localAddress;
-		private SocketAddress _remoteAddress;
 		private static Logger logger = LogManager.GetCurrentClassLogger();
 
 		private static io.netty.nio.SocketChannel newSocket(SelectorProvider provider)
@@ -68,7 +66,18 @@ namespace io.netty.channel.socket.nio
 
 		protected override SocketAddress localAddress0()
 		{
-			return _localAddress;
+			IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
+			IPAddress myself = host.AddressList[0];
+
+			foreach (IPAddress ip in host.AddressList)
+			{
+				if (ip.AddressFamily == AddressFamily.InterNetwork)
+				{
+					return new IPEndPoint(ip, 0).Serialize();
+				}
+			}
+
+			return null;
 		}
 
 		protected override SocketAddress remoteAddress0()
@@ -111,6 +120,7 @@ namespace io.netty.channel.socket.nio
 			if (tcpClient != null)
 			{
 //				tcpClient.Client.Dispose();
+				_localAddress = null;
 				tcpClient.Client.Close();
 				tcpClient.Close();
 				tcpClient = null;
@@ -192,6 +202,7 @@ namespace io.netty.channel.socket.nio
 
 			try
 			{
+				_localAddress = null;
 				tcpClient.GetStream().Dispose();
 //				tcpClient.Client.Dispose();
 				tcpClient.Client.Close();
@@ -230,6 +241,9 @@ namespace io.netty.channel.socket.nio
 			try
 			{
 				tcpClient.EndConnect(ar);
+				logger.Info("start : get local address");
+				_localAddress = tcpClient.Client.LocalEndPoint.Serialize();
+				logger.Info("end : get local address");
 
 				eventLoop().execute(() =>
 				{

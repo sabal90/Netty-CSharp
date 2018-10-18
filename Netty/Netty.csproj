@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>io</RootNamespace>
     <AssemblyName>Netty</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <CodeContractsAssemblyMode>1</CodeContractsAssemblyMode>
@@ -121,16 +121,22 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <HintPath>packages\NLog.4.5.7\lib\net45\NLog.dll</HintPath>
+      <HintPath>..\IntegratedTray\packages\NLog.4.5.8\lib\net35\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Reactive.EventAggregator.Net35, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\IntegratedTray\packages\Reactive.EventAggregator.Net35.1.0.0\lib\net35\Reactive.EventAggregator.Net35.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Reactive, Version=1.0.10621.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\IntegratedTray\packages\Rx-Main.1.0.11226\lib\Net35\System.Reactive.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
@@ -253,6 +259,12 @@
     <Compile Include="netty\util\ReferenceCountUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="netty\channel\socket\nio\NioSocketChannel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Util\Util.csproj">
+      <Project>{502bec62-13c4-4454-bc1b-09ccdf28abaf}</Project>
+      <Name>Util</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
