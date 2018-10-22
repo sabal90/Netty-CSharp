@@ -57,8 +57,6 @@ namespace io.netty.channel.socket.nio
 		{
 			try
 			{
-// 				TcpClient tcpClient = tcpListener.EndAcceptTcpClient(ar);
-// 				SocketChannelImpl socketChannel = new SocketChannelImpl(DEFAULT_SELECTOR_PROVIDER, tcpClient);
 				NioSocketChannel remoteChannel = new NioSocketChannel(this, new SocketChannelImpl(DEFAULT_SELECTOR_PROVIDER, tcpListener.EndAcceptTcpClient(ar)));
 				pipeline().fireChannelRead(remoteChannel);
 				pipeline().fireChannelReadComplete();
