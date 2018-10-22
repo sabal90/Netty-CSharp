@@ -1,5 +1,5 @@
-﻿using Reactive.EventAggregator.Net35;
-using System;
+﻿using System;
+using System.Collections.Concurrent;
 
 namespace io.netty.channel
 {
@@ -49,9 +49,7 @@ namespace io.netty.channel
 
 		private bool initChannel(ChannelHandlerContext ctx)
 		{
-			bool ret;
-
-			if (initMap.TryAdd(ctx, true, out ret) == true) // Guard against re-entrance.
+			if (initMap.TryAdd(ctx, true) == true) // Guard against re-entrance.
 			{
 				try
 				{
@@ -87,7 +85,8 @@ namespace io.netty.channel
 			}
 			finally
 			{
-				initMap.Remove(ctx);
+				bool value;
+				initMap.TryRemove(ctx, out value);
 			}
 		}
 	}

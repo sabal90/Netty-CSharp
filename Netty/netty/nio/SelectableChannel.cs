@@ -6,7 +6,10 @@ namespace io.netty.nio
 	public abstract class SelectableChannel : TcpClient
 	{
 		protected SelectableChannel() { }
-		protected SelectableChannel(TcpClient socket) : base(socket.Client.AddressFamily) { }
+		protected SelectableChannel(TcpClient socket)
+		{
+			Client = socket.Client;
+		}
 
 		public abstract bool isRegistered();
 		public abstract SelectionKey keyFor(Selector sel);

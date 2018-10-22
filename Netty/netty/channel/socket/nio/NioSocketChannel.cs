@@ -45,9 +45,15 @@ namespace io.netty.channel.socket.nio
 		public NioSocketChannel(io.netty.nio.SocketChannel socket) : this(null, socket) { }
 		public NioSocketChannel(Channel parent, io.netty.nio.SocketChannel socket) : base(parent, socket)
 		{
-			_isActive = false;
-			tryReconnectTime = 1000;
-			isTryReconnect = true;
+			if (parent == null)
+			{
+				_isActive = false;
+				isTryReconnect = true;
+				tryReconnectTime = 1000;
+			}
+			else
+				_isActive = true;
+
 			this.tcpClient = socket;
 			buffer = new byte[1024];
 		}
@@ -271,6 +277,11 @@ namespace io.netty.channel.socket.nio
 					Array.Copy(buffer, rcvBuffer, len);
 					eventLoop().execute(() => fireChannelRead(rcvBuffer));
 					Read();
+				}
+				else
+				{
+					getUnsafe().disconnect();
+					TryReconnect();
 				}
 			}
 			catch (Exception cause)
