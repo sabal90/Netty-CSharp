@@ -85,8 +85,8 @@ namespace io.netty.channel
 			}
 			finally
 			{
-				bool value;
-				initMap.TryRemove(ctx, out value);
+				bool ret;
+				initMap.TryRemove(ctx, out ret);
 			}
 		}
 	}

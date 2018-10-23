@@ -247,9 +247,7 @@ namespace io.netty.channel.socket.nio
 			try
 			{
 				tcpClient.EndConnect(ar);
-				logger.Info("start : get local address");
 				_localAddress = tcpClient.Client.LocalEndPoint.Serialize();
-				logger.Info("end : get local address");
 
 				eventLoop().execute(() =>
 				{

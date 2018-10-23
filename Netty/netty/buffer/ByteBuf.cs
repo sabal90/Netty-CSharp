@@ -97,9 +97,9 @@ namespace io.netty.buffer
 			if (remainingSize < length)
 			{
 				Array.Resize(ref pbyBuffer, pbyBuffer.Length + length - remainingSize);
-				Console.WriteLine("=====================================");
-				Console.WriteLine("new expanded data buffer size : " + pbyBuffer.Length);
-				Console.WriteLine("=====================================");
+// 				Console.WriteLine("=====================================");
+// 				Console.WriteLine("new expanded data buffer size : " + pbyBuffer.Length);
+// 				Console.WriteLine("=====================================");
 			}
 
 			// Copy the data
