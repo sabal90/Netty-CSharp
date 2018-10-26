@@ -81,7 +81,6 @@ namespace io.netty.bootstrap
 				}
 			}
 
-//			this._localAddress = new DnsEndPoint(inetHost, inetPort).Serialize();
 			return (B)this;
 		}
 

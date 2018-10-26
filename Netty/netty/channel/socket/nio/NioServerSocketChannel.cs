@@ -12,7 +12,6 @@ namespace io.netty.channel.socket.nio
 	{
 		private TcpListener tcpListener;
 		private bool _isActive;
-//		private SocketAddress _localAddress;
 		private static ChannelMetadata METADATA = new ChannelMetadata(false, 16);
 		private static SelectorProvider DEFAULT_SELECTOR_PROVIDER = SelectorProvider.provider();
 		private static Logger logger = LogManager.GetCurrentClassLogger();
@@ -58,10 +57,11 @@ namespace io.netty.channel.socket.nio
 			try
 			{
 				NioSocketChannel remoteChannel = new NioSocketChannel(this, new SocketChannelImpl(DEFAULT_SELECTOR_PROVIDER, tcpListener.EndAcceptTcpClient(ar)));
+				tcpListener.BeginAcceptTcpClient(new AsyncCallback(onAccept), tcpListener);
+
 				pipeline().fireChannelRead(remoteChannel);
 				pipeline().fireChannelReadComplete();
 				remoteChannel.Read();
-				tcpListener.BeginAcceptTcpClient(new AsyncCallback(onAccept), tcpListener);
 			}
 			catch (Exception e)
 			{

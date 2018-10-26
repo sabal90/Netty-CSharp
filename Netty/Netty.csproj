@@ -164,6 +164,7 @@
     <Compile Include="netty\channel\rxtx\SerialPortFixer.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="netty\channel\SimpleChannelInboundHandler.cs" />
     <Compile Include="netty\channel\usb\UsbChannel.cs" />
     <Compile Include="netty\nio\AbstractSelectableChannel.cs" />
     <Compile Include="netty\nio\AbstractSelectionKey.cs" />

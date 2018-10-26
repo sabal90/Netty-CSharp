@@ -52,7 +52,11 @@ namespace io.netty.channel.socket.nio
 				tryReconnectTime = 1000;
 			}
 			else
+			{
 				_isActive = true;
+				_localAddress = socket.Client.LocalEndPoint.Serialize();
+				_remoteAddress = socket.Client.RemoteEndPoint.Serialize();
+			}
 
 			this.tcpClient = socket;
 			buffer = new byte[1024];
