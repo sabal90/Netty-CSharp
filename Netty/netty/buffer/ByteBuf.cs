@@ -282,7 +282,7 @@ namespace io.netty.buffer
 
 		public float GetFloat(int offset = 0)
 		{
-			byte[] tmp = new byte[sizeof(double)];
+			byte[] tmp = new byte[sizeof(float)];
 			Array.Copy(pbyBuffer, offset, tmp, 0, tmp.Length);
 
 			if (ByteOrder.nativeOrder() != bo)
