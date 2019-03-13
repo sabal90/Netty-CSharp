@@ -46,6 +46,7 @@ namespace io.netty.handler.codec
 				if (acceptInboundMessage(msg))
 				{
 					I cast = (I)msg;
+
 					try
 					{
 //						decode(ctx, cast, outBuffers);

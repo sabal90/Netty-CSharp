@@ -8,8 +8,8 @@ namespace io.netty.channel.socket
 	public class DatagramPacket : DefaultAddressedEnvelope<ByteBuf, SocketAddress>, ByteBufHolder
 	{
 		/**
-     * Create a new instance with the specified packet {@code data} and {@code recipient} address.
-     */
+		 * Create a new instance with the specified packet {@code data} and {@code recipient} address.
+		 */
 		public DatagramPacket(ByteBuf data, SocketAddress recipient) : base(data, recipient) { }
 
 		/**

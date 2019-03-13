@@ -158,13 +158,13 @@ namespace io.netty.handler.timeout
 		public override void write(ChannelHandlerContext ctx, Object msg)
 		{
 			// Allow writing with void promise if handler is only configured for read timeout events.
+			ctx.write(msg);
+
 			if (writerIdleTimeNanos > 0 || allIdleTimeNanos > 0)
 			{
+				lastWriteTime = ticksInNanos();
+				firstWriterIdleEvent = firstAllIdleEvent = true;
 //				ctx.write(msg).addListener(writeListener);
-			}
-			else
-			{
-				ctx.write(msg);
 			}
 		}
 
@@ -356,7 +356,6 @@ namespace io.netty.handler.timeout
 
 			protected override void run(ChannelHandlerContext ctx)
 			{
-
 				long lastWriteTime = idleStateHandler.lastWriteTime;
 				long nextDelay = idleStateHandler.writerIdleTimeNanos - (idleStateHandler.ticksInNanos() - idleStateHandler.lastWriteTime);
 
