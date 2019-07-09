@@ -278,7 +278,6 @@ namespace io.netty.channel.socket.nio
 					byte[] rcvBuffer = new byte[len];
 					Array.Copy(buffer, rcvBuffer, len);
 					eventLoop().execute(() => fireChannelRead(rcvBuffer));
-					Read();
 				}
 				else
 				{
