@@ -87,7 +87,7 @@ namespace io.netty.channel.rxtx
 					return;
 
 				commPort.PortName = portName;
-				commPort.BaudRate = 9600;
+				commPort.BaudRate = 115200;
 				commPort.Parity = Parity.None;
 				commPort.DataBits = 8;
 				commPort.StopBits = StopBits.One;
